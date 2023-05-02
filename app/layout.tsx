@@ -1,9 +1,9 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter, Fira_Code, Noto_Serif } from "@next/font/google";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -51,9 +51,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
+const display = Noto_Serif({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto",
+});
+
+const fira = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira",
 });
 
 export default function RootLayout({
@@ -62,7 +68,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html
+      lang="en"
+      className={`${[inter.variable, display.variable, fira.variable].join(
+        " "
+      )} scroll-smooth`}
+    >
       <body
         className={`bg-gray-950 text-gray-100 ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
@@ -71,6 +82,7 @@ export default function RootLayout({
         <Header />
         <Analytics />
         {children}
+        <Footer />
       </body>
     </html>
   );

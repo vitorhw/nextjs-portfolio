@@ -2,18 +2,38 @@
 
 import Link from "next/link";
 import { useScrollDirection } from "../../hooks/useScrollDirection";
-import { useScrollY } from "../../hooks/useScrollY";
 import { motion } from "framer-motion";
 import {
   LinkedinLogo,
   DribbbleLogo,
   GithubLogo,
   SquaresFour,
+  ArrowLeft,
 } from "@phosphor-icons/react";
+import { usePathname } from "next/navigation";
+import { SocialButton } from "./socialButton";
+
+export const socials = [
+  {
+    name: "GitHub",
+    href: "https://github.com/vitorhw",
+    icon: <GithubLogo />,
+  },
+  {
+    name: "Dribbble",
+    href: "https://dribbble.com/vhwdev",
+    icon: <DribbbleLogo />,
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/vitorhw/",
+    icon: <LinkedinLogo />,
+  },
+];
 
 export function Header() {
   const scrollDirection = useScrollDirection();
-  const scrollY = useScrollY();
+  const asPath = usePathname();
 
   return (
     <motion.header
@@ -29,33 +49,22 @@ export function Header() {
         className={`outline outline-1 outline-gray-800 p-4 rounded-full bg-gray-900 bg-opacity-30 backdrop-blur flex flex-row md:grid md:grid-cols-3 items-center justify-between w-full`}
       >
         <div className="hidden md:flex gap-2">
-          <Link
-            href="https://www.linkedin.com/in/vitorhw/"
-            className="group p-4 border border-gray-800 hover:border-gray-600 hover:bg-gray-200 text-gray-100 hover:text-gray-800 rounded-full transition-all duration-200"
-          >
-            <GithubLogo
-              size={24}
-              className="fill-gray-200 group-hover:fill-gray-800"
-            />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/vitorhw/"
-            className="group p-4 border border-gray-800 hover:border-gray-600 hover:bg-gray-200 text-gray-100 hover:text-gray-800 rounded-full transition-all duration-200"
-          >
-            <DribbbleLogo
-              size={24}
-              className="fill-gray-200 group-hover:fill-gray-800"
-            />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/vitorhw/"
-            className="group p-4 border border-gray-800 hover:border-gray-600 hover:bg-gray-100 text-gray-100 hover:text-gray-800 rounded-full transition-all duration-200"
-          >
-            <LinkedinLogo
-              size={24}
-              className="fill-gray-200 group-hover:fill-gray-800"
-            />
-          </Link>
+          {asPath?.startsWith("/projects") && (
+            <Link
+              href="#work"
+              className="group p-4 rounded-full transition-all duration-200"
+            >
+              <ArrowLeft
+                size={24}
+                className="fill-gray-200 group-hover:fill-gray-100 group-hover:scale-110"
+              />
+            </Link>
+          )}
+          {socials.map((social) => (
+            <SocialButton name={social.name} href={social.href}>
+              {social.icon}
+            </SocialButton>
+          ))}
         </div>
 
         <div className="flex justify-around items-center">
@@ -66,7 +75,7 @@ export function Header() {
               viewBox="0 0 146 39"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="cursor-pointer"
+              className="ml-4 md:ml-0 cursor-pointer"
             >
               <path
                 d="M7.86364 7.72727L12.6364 24.1364H12.8182L17.5909 7.72727H24.7273L17.0455 31H8.40909L0.727273 7.72727H7.86364ZM33.2869 7.72727V31H26.9688V7.72727H33.2869ZM35.6449 12.8182V7.72727H55.8722V12.8182H48.8722V31H42.6449V12.8182H35.6449ZM79.7017 19.3636C79.7017 21.9545 79.1979 24.1402 78.1903 25.9205C77.1828 27.6932 75.8229 29.0379 74.1108 29.9545C72.3987 30.8636 70.4896 31.3182 68.3835 31.3182C66.2623 31.3182 64.3456 30.8598 62.6335 29.9432C60.929 29.0189 59.5729 27.6705 58.5653 25.8977C57.5653 24.1174 57.0653 21.9394 57.0653 19.3636C57.0653 16.7727 57.5653 14.5909 58.5653 12.8182C59.5729 11.0379 60.929 9.69318 62.6335 8.78409C64.3456 7.86742 66.2623 7.40909 68.3835 7.40909C70.4896 7.40909 72.3987 7.86742 74.1108 8.78409C75.8229 9.69318 77.1828 11.0379 78.1903 12.8182C79.1979 14.5909 79.7017 16.7727 79.7017 19.3636ZM73.2017 19.3636C73.2017 17.9697 73.0161 16.7955 72.6449 15.8409C72.2812 14.8788 71.7396 14.1515 71.0199 13.6591C70.3078 13.1591 69.429 12.9091 68.3835 12.9091C67.3381 12.9091 66.4555 13.1591 65.7358 13.6591C65.0237 14.1515 64.482 14.8788 64.1108 15.8409C63.7472 16.7955 63.5653 17.9697 63.5653 19.3636C63.5653 20.7576 63.7472 21.9356 64.1108 22.8977C64.482 23.8523 65.0237 24.5795 65.7358 25.0795C66.4555 25.572 67.3381 25.8182 68.3835 25.8182C69.429 25.8182 70.3078 25.572 71.0199 25.0795C71.7396 24.5795 72.2812 23.8523 72.6449 22.8977C73.0161 21.9356 73.2017 20.7576 73.2017 19.3636ZM82.625 31V7.72727H92.6705C94.3977 7.72727 95.9091 8.04167 97.2045 8.67045C98.5 9.29924 99.5076 10.2045 100.227 11.3864C100.947 12.5682 101.307 13.9848 101.307 15.6364C101.307 17.303 100.936 18.7083 100.193 19.8523C99.4583 20.9962 98.4242 21.8598 97.0909 22.4432C95.7652 23.0265 94.2159 23.3182 92.4432 23.3182H86.4432V18.4091H91.1705C91.9129 18.4091 92.5455 18.3182 93.0682 18.1364C93.5985 17.947 94.0038 17.6477 94.2841 17.2386C94.572 16.8295 94.7159 16.2955 94.7159 15.6364C94.7159 14.9697 94.572 14.428 94.2841 14.0114C94.0038 13.5871 93.5985 13.2765 93.0682 13.0795C92.5455 12.875 91.9129 12.7727 91.1705 12.7727H88.9432V31H82.625ZM96.2614 20.3182L102.08 31H95.2159L89.5341 20.3182H96.2614ZM104 31V7.72727H110.318V16.8182H118.682V7.72727H125V31H118.682V21.9091H110.318V31H104Z"
@@ -97,7 +106,7 @@ export function Header() {
 
         <div className="justify-end flex gap-2">
           <Link
-            href="https://www.linkedin.com/in/vitorhw/"
+            href="#work"
             className="group p-4 rounded-full transition-all duration-200"
           >
             <SquaresFour
