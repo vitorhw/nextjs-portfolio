@@ -3,8 +3,9 @@ import { allProjects } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
-import { ReportView } from "./view";
 import { Redis } from "@upstash/redis";
+import { BackUpButton } from "@/app/components/backUpButton";
+import { ContactMe } from "@/app/components/contactMe";
 
 export const revalidate = 60;
 
@@ -40,13 +41,14 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <div className="bg-zinc-50 min-h-screen">
+    <div className="min-h-screen">
+      <BackUpButton />
       <Header project={project} views={views || 0} />
-      <ReportView slug={project.slug} />
 
-      <article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless">
+      <article className="px-4 py-12 mx-auto prose prose-invert prose-quoteless border-y border-gray-800">
         <Mdx code={project.body.code} />
       </article>
+      
     </div>
   );
 }

@@ -4,22 +4,22 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
+import { ContactMe } from "./components/contactMe";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "VITORH",
+    template: "%s | VITORH",
   },
-  description: "Software engineer at upstash.com and founder of planetfall.io",
+  description: "Frontend software engineer",
   openGraph: {
-    title: "chronark.com",
-    description:
-      "Software engineer at upstash.com and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    title: "VITORH",
+    description: "Frontend software engineer",
+    url: "https://dev.vitorh.work",
+    siteName: "VITORH",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "/banner.png",
         width: 1920,
         height: 1080,
       },
@@ -82,6 +82,7 @@ export default function RootLayout({
         <Header />
         <Analytics />
         {children}
+        <ContactMe />
         <Footer />
       </body>
     </html>

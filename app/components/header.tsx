@@ -46,7 +46,7 @@ export function Header() {
       transition={{ duration: 0.3 }}
     >
       <div
-        className={`outline outline-1 outline-gray-800 p-4 rounded-full bg-gray-900 bg-opacity-30 backdrop-blur flex flex-row md:grid md:grid-cols-3 items-center justify-between w-full`}
+        className={`border border-1 border-gray-800 p-4 rounded-full bg-gray-900 bg-opacity-30 backdrop-blur flex flex-row md:grid md:grid-cols-3 items-center justify-between w-full`}
       >
         <div className="hidden md:flex gap-2">
           {asPath?.startsWith("/projects") && (
@@ -61,7 +61,11 @@ export function Header() {
             </Link>
           )}
           {socials.map((social) => (
-            <SocialButton name={social.name} href={social.href}>
+            <SocialButton
+              name={social.name}
+              href={social.href}
+              key={social.name}
+            >
               {social.icon}
             </SocialButton>
           ))}

@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer className="flex w-full mx-auto">
-      <div className="border border-t-1 border-gray-800 p-4 bg-gray-900 bg-opacity-30 backdrop-blur flex flex-row md:flex items-center justify-around w-full">
+      <div className="p-4 border-t border-gray-800 flex flex-row md:flex items-center justify-around w-full">
         <div className="flex md:hidden gap-2">
           {asPath?.startsWith("/projects") && (
             <Link
@@ -30,7 +30,9 @@ export function Footer() {
             </SocialButton>
           ))}
         </div>
-        <p className="p-4 opacity-80 hidden md:block">with love, VITORH.</p>
+        <p className="p-4 opacity-80 text-sm text-center font-fira hidden md:block">
+          with love, VITORH. <br /> {new Date().getFullYear()}
+        </p>
       </div>
     </footer>
   );

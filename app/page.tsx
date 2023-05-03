@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="relative px-8 w-screen max-w-[1440px] mx-auto flex flex-col justify-around min-h-[calc(100vh-220px)]">
+      <div className="px-8 max-w-[1440px] mx-auto flex flex-col justify-around min-h-[calc(100vh-220px)]">
         <div className="text-center animate-title mx-auto max-w-[70rem]">
           <div className="text-6xl md:text-[5rem] font-bold leading-[130%]">
             <span className="mr-6">Hi, I'm</span>
@@ -86,7 +86,7 @@ export default async function Home() {
 
       <div
         id="work"
-        className="p-8 w-full max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
+        className="animate-fade-in p-8 w-full max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
       >
         <div className="grid grid-cols-1 gap-4">
           {sorted
@@ -119,7 +119,7 @@ export default async function Home() {
 
       <div
         id="me"
-        className="w-screen mx-auto max-w-2xl my-24 p-8 flex flex-col items-center text-center"
+        className="mx-auto md:max-w-2xl mt-24 p-8 flex flex-col items-center text-center"
       >
         <div className="flex flex-row gap-4 items-end ">
           <div className="mr-2 w-8 h-8 md:w-12 md:h-12 relative inline-block">
@@ -138,7 +138,7 @@ export default async function Home() {
         <h2 className="font-bold font-heading text-6xl mt-8 ">
           A brief introduction
         </h2>
-        <p className=" text-lg opacity-80 mt-8 max-w-lg">
+        <p className="w-full text-lg opacity-80 mt-8 max-w-lg">
           Hey, I'm Vitor Hugo, a frontend engineer and computer science
           undergraduate based in Brazil. My career as a web developer dates back
           to 2017, when I first integrated a Clash Royale API to my Wordpress
@@ -153,7 +153,7 @@ export default async function Home() {
           for visiting my portfolio!
         </p>
       </div>
-      <div className="mb-24">
+      <div className="my-[10rem]">
         <IconMarquee />
       </div>
     </>
