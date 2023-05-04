@@ -45,10 +45,9 @@ export default async function PostPage({ params }: Props) {
       <BackUpButton />
       <Header project={project} views={views || 0} />
 
-      <article className="px-4 py-12 mx-auto prose prose-invert prose-quoteless border-y border-gray-800">
+      <article className="px-8 md:px-4 py-12 mx-auto prose prose-invert prose-quoteless border-y border-gray-800">
         <Mdx code={project.body.code} />
       </article>
-      
     </div>
   );
 }

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "VITORH",
     card: "summary_large_image",
   },
   icons: {
@@ -72,7 +72,7 @@ export default function RootLayout({
       lang="en"
       className={`${[inter.variable, display.variable, fira.variable].join(
         " "
-      )} scroll-smooth`}
+      )} scroll-smooth min-h-screen`}
     >
       <body
         className={`bg-gray-950 text-gray-100 ${
