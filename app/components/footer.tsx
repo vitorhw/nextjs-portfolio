@@ -25,7 +25,11 @@ export function Footer() {
             </Link>
           )}
           {socials.map((social) => (
-            <SocialButton name={social.name} href={social.href}>
+            <SocialButton
+              name={social.name}
+              href={social.href}
+              key={social.name}
+            >
               {social.icon}
             </SocialButton>
           ))}

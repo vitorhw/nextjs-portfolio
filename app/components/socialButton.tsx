@@ -19,7 +19,6 @@ export const SocialButton = ({
         size: 24,
         className: "fill-gray-200 group-hover:fill-gray-800",
       }}
-      key={name}
     >
       <Link
         href={href}

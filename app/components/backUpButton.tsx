@@ -17,7 +17,7 @@ export function BackUpButton() {
       exit={{ y: 100, opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <ArrowUp color="white" size={48} />
+      <ArrowUp color="white" size={72} />
     </motion.a>
   );
 }
