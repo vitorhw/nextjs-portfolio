@@ -1,7 +1,7 @@
 export default function Loading() {
   // You can add any UI inside Loading, including a Skeleton.
   return (
-    <div className="h-full w-full flex flex-row items-center justify-around">
+    <div className="h-full py-8 w-full flex flex-row items-center justify-around">
       <svg
         aria-hidden="true"
         className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-800 fill-blue-600"

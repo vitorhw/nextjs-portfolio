@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useScrollY } from "../../hooks/useScrollY";
 import { ArrowUp } from "@phosphor-icons/react";
+import Link from "next/link";
 
 export function BackUpButton() {
   const scrollY = useScrollY();
@@ -17,7 +18,9 @@ export function BackUpButton() {
       exit={{ y: 100, opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <ArrowUp color="white" size={72} />
+      <div className="p-4 border border-gray-700 rounded-full flex items-center justify-around hover:border-gray-600">
+        <ArrowUp color="white" size={36} />
+      </div>
     </motion.a>
   );
 }

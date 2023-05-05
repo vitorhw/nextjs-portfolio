@@ -5,7 +5,7 @@ import { Header } from "./header";
 import "./mdx.css";
 import { Redis } from "@upstash/redis";
 import { BackUpButton } from "@/app/components/backUpButton";
-import { ContactMe } from "@/app/components/contactMe";
+import { Metadata } from "next";
 
 export const revalidate = 60;
 
@@ -23,6 +23,15 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
     .map((p) => ({
       slug: p.slug,
     }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params?.slug;
+  const project = allProjects.find((project) => project.slug === slug);
+
+  return {
+    title: project?.title,
+  };
 }
 
 export default async function PostPage({ params }: Props) {

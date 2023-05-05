@@ -34,7 +34,7 @@ export default async function Home() {
         <div className="text-center animate-title mx-auto max-w-[70rem]">
           <div className="text-5xl md:text-[5rem] font-bold leading-[130%]">
             <span className="mr-6">Hi, I'm</span>
-            <div className="mr-2 md:mr-0 md:ml-4 w-12 h-12 md:w-16 md:h-16 relative inline-block">
+            <div className="mr-2 md:mr-0 md:ml-4 w-10 h-10 md:w-16 md:h-16 relative inline-block">
               <Image
                 src="/pfp.jpg"
                 fill
@@ -122,7 +122,7 @@ export default async function Home() {
         className="mx-auto md:max-w-2xl mt-24 p-8 flex flex-col items-center text-center"
       >
         <div className="flex flex-row gap-4 items-end ">
-          <div className="hidden md:inline-block mr-2 w-8 h-8 md:w-12 md:h-12 relative">
+          <div className="hidden md:inline-block mr-2 w-4 h-4 md:w-12 md:h-12 relative">
             <Image
               src="/about.jpg"
               fill
