@@ -1,8 +1,6 @@
 import type { Project } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye } from "lucide-react";
-import { Suspense } from "react";
-import Loading from "../loading";
 
 type Props = {
   project: Project;

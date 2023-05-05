@@ -6,8 +6,9 @@ import "./mdx.css";
 import { Redis } from "@upstash/redis";
 import { BackUpButton } from "@/app/components/backUpButton";
 import { Metadata } from "next";
+import { ReportView } from "./view";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 type Props = {
   params: {
@@ -51,6 +52,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <div className="min-h-screen">
+      <ReportView slug={project.slug} />
       <BackUpButton />
       <Header project={project} views={views || 0} />
 
