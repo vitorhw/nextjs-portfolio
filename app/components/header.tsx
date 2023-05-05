@@ -52,6 +52,7 @@ export function Header() {
           {asPath?.startsWith("/projects") && (
             <Link
               href="#work"
+              scroll={false}
               className="group p-4 rounded-full transition-all duration-200"
             >
               <ArrowLeft

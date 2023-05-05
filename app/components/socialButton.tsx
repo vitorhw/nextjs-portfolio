@@ -22,6 +22,7 @@ export const SocialButton = ({
     >
       <Link
         href={href}
+        target="_blank"
         className="group p-4 border border-gray-800 hover:border-gray-600 hover:bg-gray-200 text-gray-100 hover:text-gray-800 rounded-full transition-all duration-200"
       >
         {children}
