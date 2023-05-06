@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { useScrollDirection } from "../../hooks/useScrollDirection";
 import { motion } from "framer-motion";

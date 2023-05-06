@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useScrollY } from "../../hooks/useScrollY";
 import { ArrowUp } from "@phosphor-icons/react";
-import Link from "next/link";
 
 export function BackUpButton() {
   const scrollY = useScrollY();

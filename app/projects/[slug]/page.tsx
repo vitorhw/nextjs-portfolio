@@ -8,7 +8,7 @@ import { BackUpButton } from "@/app/components/backUpButton";
 import { Metadata } from "next";
 import { ReportView } from "./view";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 type Props = {
   params: {

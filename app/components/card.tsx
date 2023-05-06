@@ -1,5 +1,4 @@
 "use client";
-
 import { PropsWithChildren } from "react";
 
 export const Card: React.FC<PropsWithChildren> = ({ children }) => {
