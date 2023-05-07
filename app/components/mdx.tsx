@@ -17,7 +17,7 @@ const components = {
   h2: ({ className, ...props }) => (
     <h2
       className={clsx(
-        "mt-10 scroll-m-20 pb-1 text-3xl font-semibold first:mt-0",
+        "mt-10 scroll-m-20 pb-1 text-3xl font-semibold first:mt-0 border-b border-b-gray-800",
         className
       )}
       {...props}
@@ -91,7 +91,7 @@ const components = {
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
     <Image
-      className={clsx("", className)}
+      className={clsx("border border-gray-800 rounded-md", className)}
       alt={alt}
       {...props}
       width={600}

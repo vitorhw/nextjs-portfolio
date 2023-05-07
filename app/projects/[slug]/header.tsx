@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 type Props = {
   project: {
@@ -8,6 +9,7 @@ type Props = {
     title: string;
     description: string;
     repository?: string;
+    banner?: string;
   };
 
   views: number;
@@ -30,8 +32,8 @@ export const Header: React.FC<Props> = ({ project, views }) => {
   }
 
   return (
-    <div className="container mx-auto relative isolate overflow-hidden  py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
+    <div className="container mx-auto relative isolate overflow-hidden py-16 sm:py-20 rounded-lg border border-gray-800">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex z-10 flex-col items-center relative">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-4xl font-semibold text-white sm:text-6xl font-display">
             {project.title}
@@ -51,6 +53,16 @@ export const Header: React.FC<Props> = ({ project, views }) => {
           </div>
         </div>
       </div>
+      <Image
+        src={
+          project.banner ||
+          "https://media1.giphy.com/media/14uQ3cOFteDaU/giphy.gif?cid=ecf05e477tzva8oph8w0ayw004joirzotu9u7hnl4p5iw9zg&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        }
+        width={1200}
+        height={600}
+        className="object-cover absolute top-0 right-0 w-full h-full opacity-10 z-0 "
+        alt="project banner"
+      />
     </div>
   );
 };
