@@ -57,6 +57,7 @@ const components = {
         className
       )}
       {...props}
+      target="_blank"
     />
   ),
   p: ({ className, ...props }) => (
@@ -89,7 +90,13 @@ const components = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={clsx("", className)} alt={alt} {...props} />
+    <Image
+      className={clsx("", className)}
+      alt={alt}
+      {...props}
+      width={600}
+      height={600}
+    />
   ),
   hr: ({ ...props }) => (
     <hr className="my-4 border-gray-800 md:my-8" {...props} />
