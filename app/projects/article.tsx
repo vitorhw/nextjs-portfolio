@@ -36,16 +36,6 @@ export const Article: React.FC<Props> = ({ project, views }) => {
           {project.description}
         </p>
       </article>
-      <Image
-        src={
-          project.banner ||
-          "https://media1.giphy.com/media/14uQ3cOFteDaU/giphy.gif?cid=ecf05e477tzva8oph8w0ayw004joirzotu9u7hnl4p5iw9zg&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-        }
-        width={500}
-        height={300}
-        className="opacity-0 object-cover absolute top-0 right-0 w-full h-full hover:opacity-10 z-0 transition-all duration-300"
-        alt="project banner"
-      />
     </Link>
   );
 };
